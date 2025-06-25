@@ -1,0 +1,75 @@
+/* 全局移动端适配样式 */
+
+/* 基础响应式设置 */
+html {
+  font-size: 16px;
+}
+
+/* 移动端字体大小调整 */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+/* 通用移动端样式 */
+@media (max-width: 768px) {
+  .mobile-padding {
+    padding: 0 16px !important;
+  }
+  
+  .mobile-margin {
+    margin: 0 16px !important;
+  }
+  
+  .mobile-full-width {
+    width: 100% !important;
+  }
+  
+  .mobile-text-center {
+    text-align: center !important;
+  }
+  
+  .mobile-hidden {
+    display: none !important;
+  }
+  
+  .mobile-block {
+    display: block !important;
+  }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 480px) {
+  .mobile-padding {
+    padding: 0 12px !important;
+  }
+  
+  .mobile-margin {
+    margin: 0 12px !important;
+  }
+}
+
+/* 防止横向滚动 */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* 移动端触摸优化 */
+@media (max-width: 768px) {
+  button, a, .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  input, textarea, select {
+    font-size: 16px !important; /* 防止iOS缩放 */
+  }
+} 

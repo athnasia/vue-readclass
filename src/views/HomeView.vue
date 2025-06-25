@@ -250,26 +250,198 @@ const hoverIndex = ref(-1)
   transition: color 0.2s;
 }
 
-@media (max-width: 900px) {
-  .carousel-item {
-    height: 180px;
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .carousel-section {
+    padding: 0 16px;
+    margin-top: 16px;
+    margin-bottom: 12px;
   }
-
-  .features-section,
+  
+  .carousel-item {
+    height: 200px;
+  }
+  
+  .main-carousel {
+    border-radius: 16px;
+  }
+  
+  .carousel-image {
+    border-radius: 16px;
+  }
+  
+  .features-section {
+    padding: 0 16px;
+    margin-bottom: 8px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 16px !important;
+    letter-spacing: 1px;
+  }
+  
+  .feature-card {
+    height: 160px;
+    border-radius: 12px;
+  }
+  
+  .feature-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+    margin-top: 8px;
+  }
+  
+  .feature-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  
+  .feature-desc {
+    font-size: 14px;
+  }
+  
+  .feature-detail {
+    font-size: 14px;
+    padding: 0 4px;
+  }
+  
   .course-intro {
+    padding: 0 16px 16px 16px;
+  }
+  
+  .intro-card {
+    border-radius: 12px;
+  }
+  
+  .intro-title {
+    font-size: 18px;
+  }
+  
+  .intro-text {
+    font-size: 14px;
+  }
+  
+  .intro-image img {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-section {
+    padding: 0 12px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .carousel-item {
+    height: 160px;
+  }
+  
+  .main-carousel {
+    border-radius: 12px;
+  }
+  
+  .carousel-image {
+    border-radius: 12px;
+  }
+  
+  .features-section {
+    padding: 0 12px;
+    margin-bottom: 6px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 12px !important;
+  }
+  
+  .feature-card {
+    height: 140px;
+    border-radius: 10px;
+  }
+  
+  .feature-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+    margin-top: 6px;
+  }
+  
+  .feature-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  
+  .feature-desc {
+    font-size: 12px;
+  }
+  
+  .feature-detail {
+    font-size: 12px;
+    padding: 0 2px;
+  }
+  
+  .course-intro {
+    padding: 0 12px 12px 12px;
+  }
+  
+  .intro-card {
+    border-radius: 10px;
+  }
+  
+  .intro-title {
+    font-size: 16px;
+  }
+  
+  .intro-text {
+    font-size: 13px;
+  }
+  
+  .intro-image img {
+    height: 100px;
+  }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 360px) {
+  .carousel-section {
     padding: 0 8px;
   }
-
+  
+  .carousel-item {
+    height: 140px;
+  }
+  
+  .features-section {
+    padding: 0 8px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+  }
+  
   .feature-card {
     height: 120px;
   }
-
-  .feature-title {
-    font-size: 15px;
+  
+  .feature-icon {
+    font-size: 28px;
   }
-
+  
+  .feature-title {
+    font-size: 13px;
+  }
+  
   .feature-desc {
-    font-size: 12px;
+    font-size: 11px;
+  }
+  
+  .course-intro {
+    padding: 0 8px 8px 8px;
+  }
+  
+  .intro-image img {
+    height: 80px;
   }
 }
 </style>

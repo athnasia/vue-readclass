@@ -129,6 +129,8 @@ const { Title, Paragraph } = Typography
 .about {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .page-header {
@@ -179,5 +181,97 @@ const { Title, Paragraph } = Typography
 
 .contact-card {
   margin-bottom: 24px;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .about {
+    padding: 0 16px;
+  }
+  
+  .page-header {
+    margin-bottom: 16px;
+  }
+  
+  .feature-row {
+    margin-bottom: 16px;
+  }
+  
+  .team-member {
+    padding: 16px;
+  }
+  
+  .member-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  
+  .tech-tags .ant-tag {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+  
+  .contact-card {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 0 12px;
+  }
+  
+  .page-header {
+    margin-bottom: 12px;
+  }
+  
+  .feature-row {
+    margin-bottom: 12px;
+  }
+  
+  .team-member {
+    padding: 12px;
+  }
+  
+  .member-avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .tech-tags .ant-tag {
+    font-size: 11px;
+    padding: 1px 6px;
+  }
+  
+  .contact-card {
+    margin-bottom: 12px;
+  }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 360px) {
+  .about {
+    padding: 0 8px;
+  }
+  
+  .team-member {
+    padding: 8px;
+  }
+  
+  .member-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  
+  .tech-tags .ant-tag {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
 }
 </style>

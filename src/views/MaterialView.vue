@@ -190,7 +190,7 @@ function onExpand(keys: string[]) {
     expandedKeys.value = keys
 }
 
-function onSelect(keys: string[], { node }: { node: any }) {
+function onSelect(keys: string[], { node }: { node: TreeNode }) {
     // 只有叶子节点才切换选中
     if (!node.children || node.children.length === 0) {
         selectedKeys.value = keys
@@ -248,7 +248,7 @@ const dataSource = computed(() => {
 
 <template>
     <div class="material-root">
-        <Row :gutter="0" align="top" justify="start">
+        <Row :gutter="0" align="top" justify="start" class="material-layout">
             <Col class="tree-col">
             <a-tree :tree-data="treeData" :expanded-keys="expandedKeys" :selected-keys="selectedKeys"
                 :expandAction="'click'" @select="onSelect" @expand="onExpand" />
@@ -257,7 +257,9 @@ const dataSource = computed(() => {
             <a-breadcrumb style="margin-bottom:16px">
                 <a-breadcrumb-item v-for="(item, idx) in breadcrumb" :key="idx">{{ item }}</a-breadcrumb-item>
             </a-breadcrumb>
-            <a-table :columns="columns" :data-source="dataSource" bordered />
+            <div class="table-container">
+                <a-table :columns="columns" :data-source="dataSource" bordered />
+            </div>
             </Col>
         </Row>
     </div>
@@ -270,6 +272,10 @@ const dataSource = computed(() => {
     background: #fafdff;
     padding: 32px 0 0 0;
     box-sizing: border-box;
+}
+
+.material-layout {
+    width: 100%;
 }
 
 .tree-col {
@@ -290,6 +296,10 @@ const dataSource = computed(() => {
     padding: 32px 32px;
     min-height: 600px;
     margin-right: 32px;
+}
+
+.table-container {
+    overflow-x: auto;
 }
 
 :deep(.ant-tree .ant-tree-node-content-wrapper.ant-tree-node-selected) {
@@ -314,5 +324,148 @@ const dataSource = computed(() => {
 
 :deep(.ant-table) {
     font-size: 16px;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .material-root {
+        padding: 16px 0 0 0;
+    }
+    
+    .material-layout {
+        flex-direction: column;
+    }
+    
+    .tree-col {
+        width: 100% !important;
+        margin: 0 16px 16px 16px;
+        padding: 20px 16px;
+        min-height: auto;
+        border-radius: 8px;
+    }
+    
+    .table-col {
+        margin: 0 16px 16px 16px;
+        padding: 20px 16px;
+        min-height: auto;
+        border-radius: 8px;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    :deep(.ant-breadcrumb) {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    
+    :deep(.ant-table) {
+        font-size: 14px;
+    }
+    
+    :deep(.ant-table-thead > tr > th) {
+        padding: 8px 4px;
+        font-size: 13px;
+    }
+    
+    :deep(.ant-table-tbody > tr > td) {
+        padding: 8px 4px;
+        font-size: 13px;
+    }
+    
+    :deep(.ant-tree) {
+        font-size: 14px;
+    }
+    
+    :deep(.ant-tree-node-content-wrapper) {
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .material-root {
+        padding: 12px 0 0 0;
+    }
+    
+    .tree-col {
+        margin: 0 12px 12px 12px;
+        padding: 16px 12px;
+        border-radius: 6px;
+    }
+    
+    .table-col {
+        margin: 0 12px 12px 12px;
+        padding: 16px 12px;
+        border-radius: 6px;
+    }
+    
+    :deep(.ant-breadcrumb) {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    
+    :deep(.ant-table) {
+        font-size: 12px;
+    }
+    
+    :deep(.ant-table-thead > tr > th) {
+        padding: 6px 2px;
+        font-size: 11px;
+    }
+    
+    :deep(.ant-table-tbody > tr > td) {
+        padding: 6px 2px;
+        font-size: 11px;
+    }
+    
+    :deep(.ant-tree) {
+        font-size: 12px;
+    }
+    
+    :deep(.ant-tree-node-content-wrapper) {
+        padding: 4px 6px;
+    }
+}
+
+/* 超小屏幕适配 */
+@media (max-width: 360px) {
+    .tree-col {
+        margin: 0 8px 8px 8px;
+        padding: 12px 8px;
+    }
+    
+    .table-col {
+        margin: 0 8px 8px 8px;
+        padding: 12px 8px;
+    }
+    
+    :deep(.ant-breadcrumb) {
+        font-size: 11px;
+        margin-bottom: 8px;
+    }
+    
+    :deep(.ant-table) {
+        font-size: 11px;
+    }
+    
+    :deep(.ant-table-thead > tr > th) {
+        padding: 4px 1px;
+        font-size: 10px;
+    }
+    
+    :deep(.ant-table-tbody > tr > td) {
+        padding: 4px 1px;
+        font-size: 10px;
+    }
+    
+    :deep(.ant-tree) {
+        font-size: 11px;
+    }
+    
+    :deep(.ant-tree-node-content-wrapper) {
+        padding: 3px 4px;
+    }
 }
 </style>
